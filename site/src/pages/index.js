@@ -25,7 +25,11 @@ const styles = {
     },
     link: {
         textDecoration: 'none',
-        color: 'white'
+        color: 'white',
+        '&:hover': {
+            color: 'white',
+            textDecoration: 'none'
+        }
     }
 };
 
@@ -35,7 +39,7 @@ const AppRouter = props => {
     return (
         <Router>
             <div>
-                <nav>
+                <nav style={{ marginBottom: '16px' }}>
                     <AppBar position="static">
                         <Toolbar>
                             <Typography variant="h6" color="inherit" className={classes.grow}>

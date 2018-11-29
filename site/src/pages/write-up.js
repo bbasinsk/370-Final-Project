@@ -5,15 +5,15 @@ export default class WriteUpPage extends React.Component {
     render() {
         return (
             <div className='container'>
-                <Typography variant="h1" align="center" gutterBottom>Write Up</Typography>
+                <h1 style={{textAlign: "center"}} >Write Up</h1>
 
-                <Typography variant="h2" gutterBottom>Purpose of the Topic</Typography>
+                <h2>Purpose of the Topic</h2>
                 <Typography variant="body1" paragraph={true} gutterBottom> 
                     The purpose of this research is to better understand if features of a home impact the amount of income a home will make when listed on Airbnb. This is a relevant topic to research because over the years, Airbnb has gained more attraction and property owners have the option to place their property on Airbnb over renting it out or even put up a listing for short periods of time when their property is not occupied.
 By having a better understanding of how features of a home impact income, our team seeks to better assist current and future AirBnb hosts. We believe that this online resource will be able to educate current and future AirBnb hosts on how to increase their average monthly income through their AirBnb listing(s) as well as give them an accurate prediction of what to expect based on their listing’s features. 
                 </Typography>
 
-                <Typography variant="h2" gutterBottom>Context</Typography>
+                <h2>Context</h2>
                 <Typography variant="body1" paragraph={true} gutterBottom>
                 <p>
                     Airbnb takes part in a shared economy, that is to say, Airbnb primarily operates in a peer-to-peer market (Georgios Zervas). Airbnb provides services that long-established companies have dominated in the past, such as hotels, and some would say that it is in this sector that Airbnb is causing the most disruption (Daniel Guttentag).
@@ -31,12 +31,12 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </Typography>
 
 
-                <Typography variant="h2" gutterBottom>Quantitative Questions</Typography>
-                <Typography variant="h2" gutterBottom>Understanding of the Dataset</Typography>
-                <Typography variant="h2" gutterBottom>High-level Insights</Typography>
-                <Typography variant="h2" gutterBottom>Methods and Results</Typography>
+                <h2>Quantitative Questions</h2>
+                <h2 variant="h2" gutterBottom>Understanding of the Dataset</h2>
+                <h2 variant="h2" gutterBottom>High-level Insights</h2>
+                <h2 variant="h2" gutterBottom>Methods and Results</h2>
                 
-                <Typography variant="h2" gutterBottom>Works Cited</Typography>
+                <h2 variant="h2" gutterBottom>Works Cited</h2>
                 <Typography variant="body1" gutterBottom> 
                     <p>Daniel Guttentag (2015) Airbnb: disruptive innovation and the rise of an informal tourism accommodation sector, Current Issues in Tourism, 18:12, 1192-1217, DOI: 10.1080/13683500.2013.827159 </p>
                     <p>Georgios Zervas, Davide Proserpio, and John W. Byers (2017) The Rise of the Sharing Economy: Estimating the Impact of Airbnb on the Hotel Industry. Journal of Marketing Research: October 2017, Vol. 54, No. 5, pp. 687-705.</p>

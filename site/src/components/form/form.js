@@ -21,23 +21,75 @@ const styles = theme => ({
     },
 });
 
-const currencies = [
+const neighborhoods = [
     {
-        value: 'USD',
-        label: '$',
+        value: 'Ballard',
+        label: 'Ballard',
     },
     {
-        value: 'EUR',
-        label: '€',
+        value: 'Beacon Hill',
+        label: 'Beacon Hill',
     },
     {
-        value: 'BTC',
-        label: '฿',
+        value: 'Capital Hill',
+        label: 'Captial Hill',
     },
     {
-        value: 'JPY',
-        label: '¥',
+        value: 'Cascade',
+        label: 'Cascade',
     },
+    {
+        value: 'Central Area',
+        label: 'BallCentral Areaard',
+    },
+    {
+        value: 'Delridge',
+        label: 'Delridge',
+    },
+    {
+        value: 'Downtown',
+        label: 'Downtown',
+    },
+    {
+        value: 'Interbay',
+        label: 'Interbay',
+    },
+    {
+        value: 'Lake City',
+        label: 'Lake City',
+    },
+    {
+        value: 'Magnolia',
+        label: 'Magnolia',
+    },
+    {
+        value: 'Northgate',
+        label: 'Northgate',
+    },
+    {
+        value: 'Queen Anne',
+        label: 'Queen Anne',
+    },
+    {
+        value: 'Rainier Valley',
+        label: 'Rainier Valley',
+    },
+    {
+        value: 'Seward Park',
+        label: 'Seward Park',
+    },
+    {
+        value: 'University District',
+        label: 'University District',
+    },
+    {
+        value: 'West Seattle',
+        label: 'West Seattle',
+    },
+    {
+        value: 'Other neighborhoods',
+        label: 'Other',
+    }
 ];
 
 class InputForm extends React.Component {
@@ -45,7 +97,7 @@ class InputForm extends React.Component {
         super(props);
         this.state = {
             name: '',
-            currency: ''
+            neighborhood: ''
         }
     }
 
@@ -79,22 +131,22 @@ class InputForm extends React.Component {
                         variant="outlined"
                     />
                     <TextField
-                        id="outlined-select-currency"
+                        id="outlined-select-neighborhood"
                         select
                         label="Select"
                         className={classes.textField}
-                        value={this.state.currency}
-                        onChange={this.handleChange('currency')}
+                        value={this.state.neighborhood}
+                        onChange={this.handleChange('neighborhood')}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
                             },
                         }}
-                        helperText="Please select your currency"
+                        helperText="Please select your neighborhood"
                         margin="normal"
                         variant="outlined"
                     >
-                        {currencies.map(option => (
+                        {neighborhoods.map(option => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                             </MenuItem>
