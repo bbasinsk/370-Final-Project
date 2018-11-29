@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     container: {
@@ -22,22 +23,22 @@ const styles = theme => ({
 
 const currencies = [
     {
-      value: 'USD',
-      label: '$',
+        value: 'USD',
+        label: '$',
     },
     {
-      value: 'EUR',
-      label: '€',
+        value: 'EUR',
+        label: '€',
     },
     {
-      value: 'BTC',
-      label: '฿',
+        value: 'BTC',
+        label: '฿',
     },
     {
-      value: 'JPY',
-      label: '¥',
+        value: 'JPY',
+        label: '¥',
     },
-  ];
+];
 
 class InputForm extends React.Component {
     constructor(props) {
@@ -46,6 +47,12 @@ class InputForm extends React.Component {
             name: '',
             currency: ''
         }
+    }
+
+    onSubmit() {
+        Object.values(this.state).map(value => {
+            console.log('submitted', value);
+        });
     }
 
     handleChange(name) {
@@ -61,37 +68,44 @@ class InputForm extends React.Component {
 
         return (
             <form>
-                <TextField
-                    id="outlined-name"
-                    label="Name"
-                    className={classes.textField}
-                    value={this.state.name}
-                    onChange={this.handleChange('name')}
-                    margin="normal"
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-select-currency"
-                    select
-                    label="Select"
-                    className={classes.textField}
-                    value={this.state.currency}
-                    onChange={this.handleChange('currency')}
-                    SelectProps={{
-                        MenuProps: {
-                            className: classes.menu,
-                        },
-                    }}
-                    helperText="Please select your currency"
-                    margin="normal"
-                    variant="outlined"
-                >
-                    {currencies.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
-                </TextField>
+                <div>
+                    <TextField
+                        id="outlined-name"
+                        label="Name"
+                        className={classes.textField}
+                        value={this.state.name}
+                        onChange={this.handleChange('name')}
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="outlined-select-currency"
+                        select
+                        label="Select"
+                        className={classes.textField}
+                        value={this.state.currency}
+                        onChange={this.handleChange('currency')}
+                        SelectProps={{
+                            MenuProps: {
+                                className: classes.menu,
+                            },
+                        }}
+                        helperText="Please select your currency"
+                        margin="normal"
+                        variant="outlined"
+                    >
+                        {currencies.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </div>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => this.onSubmit()}
+                >Submit</Button>
             </form>
         );
     }

@@ -4,7 +4,7 @@ import Form from '../components/form/form';
 export default class InputFormPage extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Input Form</h1>
                 <Form />
             </div>
