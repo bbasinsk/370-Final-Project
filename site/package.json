@@ -1,0 +1,25 @@
+{
+  "name": "info-370-final-resource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --open",
+    "build": "rm -rf dist && parcel build index.html"
+  },
+  "keywords": [],
+  "author": "Ben Basinski",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.6.0",
+    "@material-ui/icons": "^3.0.1",
+    "core-js": "^2.5.7",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
+  }
+}
