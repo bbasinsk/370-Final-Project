@@ -1,33 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import json
-import numpy as np  
-import pandas as pd  
-from sklearn.model_selection import train_test_split  
-from sklearn.preprocessing import StandardScaler  
-from sklearn.neighbors import KNeighborsClassifier  
+from model import get_model
+from columns import get_column_names
+import pandas as pd
 
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-
-# Assign colum names to the dataset
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
-
-# Read dataset to pandas dataframe
-dataset = pd.read_csv(url, names=names)  
-
-# Set features (x) and labels (y)
-X = dataset.iloc[:, :-1].values  
-y = dataset.iloc[:, 4].values  
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)  
-
-scaler = StandardScaler()
-scaler.fit(X_train)
-
-X_train = scaler.transform(X_train)
-X_test = scaler.transform(X_test)
-
-classifier = KNeighborsClassifier(n_neighbors=10)  
-classifier.fit(X_train, y_train)  
+classifier = get_model()
 
 # ===========================================================================================
 #   START THE SERVER
@@ -37,45 +14,69 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return "Hello World!"
+    return "Hello!"
 
-@app.route('/predict')
+
+@app.route('/predict', methods=['POST', 'OPTIONS'])
 def make_prediction():
     if not request.get_json():
-        abort(400)
+        response = jsonify({'a': 'a'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', '*')
+        return response
+    
     request_data = request.get_json()
 
-    s_l = float(request_data.get("sepal_length"))
-    s_w = float(request_data.get("sepal_width"))
-    p_l = float(request_data.get("petal_length"))
-    p_w = float(request_data.get("petal_width"))
+    df = pd.DataFrame(columns=get_column_names())
+    
+    # set all dummy columns to 0
+    df.loc[0, 28:] = 0
 
-    x = [[s_l, s_w, p_l, p_w]]
-    x_transformed = scaler.transform(x)
-    result = classifier.predict(x_transformed)
-    return str(result[0])
+    # for each dummy value, set to 1
+    df.loc[0, 'neighbourhood_' + request_data.get("neighborhood")] = 1
+    df.loc[0, 'zipcode_' + request_data.get("zipcode")] = 1
+    df.loc[0, 'property_type_' + request_data.get("property_type")] = 1
+    df.loc[0, "room_type_" + request_data.get("room_type")] = 1
+    df.loc[0, "bed_type_" + request_data.get("bed_type")] = 1
+
+    # for each of the numeric variables
+    df.loc[0, 'accommodates'] = request_data.get("accommodates")
+    df.loc[0, 'bathrooms'] = request_data.get("bathrooms")
+    df.loc[0, 'bedrooms'] = request_data.get("bedrooms")
+    df.loc[0, 'beds'] = request_data.get("beds")
+    df.loc[0, 'guests_included'] = request_data.get("guests_included")
+    df.loc[0, 'extra_people'] = request_data.get("extra_people")
+    df.loc[0, 'minimum_nights'] = request_data.get("minimum_nights")
+    df.loc[0, 'maximum_nights'] = request_data.get("maximum_nights")
+
+    # for each of the amenities
+    df.loc[0, "Heat lamps"] = request_data.get("Heat lamps")
+    df.loc[0, "Sound system"] = request_data.get("Sound system")
+    df.loc[0, "Shared gym"] = request_data.get("Shared gym")
+    df.loc[0, "Pack n Play/travel crib"] = request_data.get("Pack n Play/travel crib")
+    df.loc[0, "Balcony"] = request_data.get("Balcony")
+    df.loc[0, "Waterfront"] = request_data.get("Waterfront")
+    df.loc[0, "Fire pit"] = request_data.get("Fire pit")
+    df.loc[0, "Wine cooler"] = request_data.get("Wine cooler")
+    df.loc[0, "Shared hot tub"] = request_data.get("Shared hot tub")
+    df.loc[0, "Doorman"] = request_data.get("Doorman")
+    df.loc[0, "Printer"] = request_data.get("Printer")
+    df.loc[0, "Shared pool"] = request_data.get("Shared pool")
+    df.loc[0, "Ski-in/Ski-out"] = request_data.get("Ski-in/Ski-out")
+    df.loc[0, "Private gym"] = request_data.get("Private gym")
+    df.loc[0, "Heated towel rack"] = request_data.get("Heated towel rack")
+    df.loc[0, "Mountain view"] = request_data.get("Mountain view")
+    df.loc[0, "Formal dining area"] = request_data.get("Formal dining area")
+    df.loc[0, "Bidet"] = request_data.get("Bidet")
+    df.loc[0, "Standing valet"] = request_data.get("Standing valet")
+    df.loc[0, "Sun loungers"] = request_data.get("Sun loungers")
+    
+    result = classifier.predict(df)
+
+    response = jsonify({'prediction': result[0]})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', '*')
+    return response
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
-
-# Versicolor
-# {
-# 	"sepal_length": 6,
-# 	"sepal_width": 2.8,
-# 	"petal_length": 4,
-# 	"petal_width": 1.3
-# }
-# Verginica
-# {
-# 	"sepal_length": 7,
-# 	"sepal_width": 3,
-# 	"petal_length": 6,
-# 	"petal_width": 2
-# }
-# Setosa
-# {
-# 	"sepal_length": 5,
-# 	"sepal_width": 4,
-# 	"petal_length": 1,
-# 	"petal_width": 0.3
-# }
+    app.run(debug=True)
