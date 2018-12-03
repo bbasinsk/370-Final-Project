@@ -26,7 +26,7 @@ def make_prediction():
         return response
     
     request_data = request.get_json()
-
+    print(request_data.get("property_type"))
     df = pd.DataFrame(columns=get_column_names())
     
     # set all dummy columns to 0
@@ -79,4 +79,4 @@ def make_prediction():
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

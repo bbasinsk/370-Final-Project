@@ -55974,7 +55974,144 @@ Object.defineProperty(exports, "default", {
 });
 
 var _MenuItem = _interopRequireDefault(require("./MenuItem"));
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./MenuItem":"node_modules/@material-ui/core/MenuItem/MenuItem.js"}],"src/components/form/neighborhoods.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./MenuItem":"node_modules/@material-ui/core/MenuItem/MenuItem.js"}],"node_modules/@material-ui/core/InputAdornment/InputAdornment.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _Typography = _interopRequireDefault(require("../Typography"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'flex',
+    height: '0.01em',
+    // Fix IE 11 flexbox alignment. To remove at some point.
+    maxHeight: '2em',
+    alignItems: 'center'
+  },
+
+  /* Styles applied to the root element if `variant="filled"` */
+  filled: {
+    '&$positionStart': {
+      marginTop: 16
+    }
+  },
+
+  /* Styles applied to the root element if `position="start"`. */
+  positionStart: {
+    marginRight: 8
+  },
+
+  /* Styles applied to the root element if `position="end"`. */
+  positionEnd: {
+    marginLeft: 8
+  }
+};
+exports.styles = styles;
+
+function InputAdornment(props) {
+  var _classNames;
+
+  var children = props.children,
+      Component = props.component,
+      classes = props.classes,
+      className = props.className,
+      disableTypography = props.disableTypography,
+      position = props.position,
+      variant = props.variant,
+      other = (0, _objectWithoutProperties2.default)(props, ["children", "component", "classes", "className", "disableTypography", "position", "variant"]);
+  return _react.default.createElement(Component, (0, _extends2.default)({
+    className: (0, _classnames.default)(classes.root, (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.filled, variant === 'filled'), (0, _defineProperty2.default)(_classNames, classes.positionStart, position === 'start'), (0, _defineProperty2.default)(_classNames, classes.positionEnd, position === 'end'), _classNames), className)
+  }, other), typeof children === 'string' && !disableTypography ? _react.default.createElement(_Typography.default, {
+    color: "textSecondary"
+  }, children) : children);
+}
+
+InputAdornment.propTypes = "development" !== "production" ? {
+  /**
+   * The content of the component, normally an `IconButton` or string.
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * If children is a string then disable wrapping in a Typography component.
+   */
+  disableTypography: _propTypes.default.bool,
+
+  /**
+   * The position this adornment should appear relative to the `Input`.
+   */
+  position: _propTypes.default.oneOf(['start', 'end']),
+
+  /**
+   * The variant to use.
+   */
+  variant: _propTypes.default.oneOf(['standard', 'outlined', 'filled'])
+} : {};
+InputAdornment.defaultProps = {
+  component: 'div',
+  disableTypography: false
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiInputAdornment'
+})(InputAdornment);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","../Typography":"node_modules/@material-ui/core/Typography/index.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js"}],"node_modules/@material-ui/core/InputAdornment/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _InputAdornment.default;
+  }
+});
+
+var _InputAdornment = _interopRequireDefault(require("./InputAdornment"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./InputAdornment":"node_modules/@material-ui/core/InputAdornment/InputAdornment.js"}],"src/components/form/neighborhoods.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56358,6 +56495,105 @@ var _default = [{
   value: '98199'
 }];
 exports.default = _default;
+},{}],"src/components/form/property-types.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [{
+  value: 'Aparthotel',
+  label: 'Aparthotel'
+}, {
+  value: 'Apartment',
+  label: 'Apartment'
+}, {
+  value: 'Bed and breakfast',
+  label: 'Bed and breakfast'
+}, {
+  value: 'Boat',
+  label: 'Boat'
+}, {
+  value: 'Boutique hotel',
+  label: 'Boutique hotel'
+}, {
+  value: 'Bungalow',
+  label: 'Bungalow'
+}, {
+  value: 'Cabin',
+  label: 'Cabin'
+}, {
+  value: 'Camper/RV',
+  label: 'Camper/RV'
+}, {
+  value: 'Castle',
+  label: 'Castle'
+}, {
+  value: 'Condominium',
+  label: 'Condominium'
+}, {
+  value: 'Cottage',
+  label: 'Cottage'
+}, {
+  value: 'Earth house',
+  label: 'Earth house'
+}, {
+  value: 'Farm stay',
+  label: 'Farm stay'
+}, {
+  value: 'Guest suite',
+  label: 'Guest suite'
+}, {
+  value: 'Guesthouse',
+  label: 'Guesthouse'
+}, {
+  value: 'Hostel',
+  label: 'Hostel'
+}, {
+  value: 'House',
+  label: 'House'
+}, {
+  value: 'Houseboat',
+  label: 'Houseboat'
+}, {
+  value: 'Hut',
+  label: 'Hut'
+}, {
+  value: 'In-law',
+  label: 'In-law'
+}, {
+  value: 'Lighthouse',
+  label: 'Lighthouse'
+}, {
+  value: 'Loft',
+  label: 'Loft'
+}, {
+  value: 'Other',
+  label: 'Other'
+}, {
+  value: 'Serviced apartment',
+  label: 'Serviced apartment'
+}, {
+  value: 'Tent',
+  label: 'Tent'
+}, {
+  value: 'Tiny house',
+  label: 'Tiny house'
+}, {
+  value: 'Townhouse',
+  label: 'Townhouse'
+}, {
+  value: 'Treehouse',
+  label: 'Treehouse'
+}, {
+  value: 'Villa',
+  label: 'Villa'
+}, {
+  value: 'Yurt',
+  label: 'Yurt'
+}];
+exports.default = _default;
 },{}],"src/actions/fetch/SERVER.js":[function(require,module,exports) {
 "use strict";
 
@@ -56483,6 +56719,8 @@ var _styles = require("@material-ui/core/styles");
 
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
+var _InputAdornment = _interopRequireDefault(require("@material-ui/core/InputAdornment"));
+
 var _neighborhoods = _interopRequireDefault(require("./neighborhoods"));
 
 var _roomTypes = _interopRequireDefault(require("./room-types"));
@@ -56490,6 +56728,8 @@ var _roomTypes = _interopRequireDefault(require("./room-types"));
 var _bedTypes = _interopRequireDefault(require("./bed-types"));
 
 var _zipCodes = _interopRequireDefault(require("./zip-codes"));
+
+var _propertyTypes = _interopRequireDefault(require("./property-types"));
 
 var _predict = _interopRequireDefault(require("../../actions/fetch/predict"));
 
@@ -56548,37 +56788,38 @@ function (_React$Component) {
     _this.state = {
       prediction: '',
       neighborhood: '',
-      roomtype: '',
-      bedtype: '',
+      property_type: '',
+      room_type: '',
+      bed_type: '',
       zipcode: '',
       accommodates: '',
       bathrooms: '',
       bedrooms: '',
       beds: '',
-      guestsincluded: '',
-      extrapeople: '',
-      minimumnights: '',
-      maximumnights: '',
-      heat_lamps: false,
-      sound_system: false,
-      shared_gym: false,
-      pack_n_play_travel_crib: false,
-      balcony: false,
-      waterfront: false,
-      fire_pit: false,
-      wine_cooler: false,
-      shared_hot_tub: false,
-      doorman: false,
-      printer: false,
-      shared_pool: false,
-      ski_in_Ski_out: false,
-      private_gym: false,
-      heated_towel_rack: false,
-      mountain_view: false,
-      formal_dining_area: false,
-      bidet: false,
-      standing_valet: false,
-      sun_loungers: false
+      guests_included: '',
+      extra_people: '',
+      minimum_nights: '',
+      maximum_nights: '',
+      "Heat lamps": false,
+      "Sound system": false,
+      "Shared gym": false,
+      "Pack n Play/travel crib": false,
+      "Balcony": false,
+      "Waterfront": false,
+      "Fire pit": false,
+      "Wine cooler": false,
+      "Shared hot tub": false,
+      "Doorman": false,
+      "Printer": false,
+      "Shared pool": false,
+      "Ski-in/Ski-out": false,
+      "Private gym": false,
+      "Heated towel rack": false,
+      "Mountain view": false,
+      "Formal dining area": false,
+      "Bidet": false,
+      "Standing valet": false,
+      "Sun loungers": false
     };
     return _this;
   }
@@ -56631,13 +56872,34 @@ function (_React$Component) {
           value: option.value
         }, option.label);
       })), _react.default.createElement(_TextField.default, {
-        id: "outlined-select-roomtype",
+        id: "outlined-select-property_type",
+        select: true,
+        label: "Property Type",
+        fullWidth: true,
+        className: classes.textField,
+        value: this.state.property_type,
+        onChange: this.handleChange('property_type'),
+        SelectProps: {
+          MenuProps: {
+            className: classes.menu
+          }
+        } // helperText="Please select type of room"
+        ,
+        margin: "normal",
+        variant: "outlined"
+      }, _propertyTypes.default.map(function (option) {
+        return _react.default.createElement(_MenuItem.default, {
+          key: option.value,
+          value: option.value
+        }, option.label);
+      })), _react.default.createElement(_TextField.default, {
+        id: "outlined-select-room_type",
         select: true,
         label: "Room Type",
         fullWidth: true,
         className: classes.textField,
-        value: this.state.roomtype,
-        onChange: this.handleChange('roomtype'),
+        value: this.state.room_type,
+        onChange: this.handleChange('room_type'),
         SelectProps: {
           MenuProps: {
             className: classes.menu
@@ -56652,13 +56914,13 @@ function (_React$Component) {
           value: option.value
         }, option.label);
       })), _react.default.createElement(_TextField.default, {
-        id: "outlined-select-bedtype",
+        id: "outlined-select-bed_type",
         select: true,
         label: "Bed Type",
         className: classes.textField,
-        value: this.state.bedtype,
+        value: this.state.bed_type,
         fullWidth: true,
-        onChange: this.handleChange('bedtype'),
+        onChange: this.handleChange('bed_type'),
         SelectProps: {
           MenuProps: {
             className: classes.menu
@@ -56729,41 +56991,49 @@ function (_React$Component) {
         id: "outlined-name",
         label: "Guests Included",
         className: classes.textField,
-        value: this.state.guestsincluded,
-        onChange: this.handleChange('guestsincluded'),
+        value: this.state.guests_included,
+        onChange: this.handleChange('guests_included'),
         margin: "normal",
         variant: "outlined"
       }), _react.default.createElement(_TextField.default, {
         id: "outlined-name",
         label: "Charge for Extra People",
         className: classes.textField,
-        value: this.state.extrapeople,
-        onChange: this.handleChange('extrapeople'),
+        value: this.state.extra_people,
+        onChange: this.handleChange('extra_people'),
         margin: "normal",
-        variant: "outlined"
+        variant: "outlined",
+        InputProps: {
+          startAdornment: _react.default.createElement(_InputAdornment.default, {
+            position: "start"
+          }, "$")
+        }
       }), _react.default.createElement(_TextField.default, {
         id: "outlined-name",
         label: "Minimum Nights",
         className: classes.textField,
-        value: this.state.minimumnights,
-        onChange: this.handleChange('minimumnights'),
+        value: this.state.minimum_nights,
+        onChange: this.handleChange('minimum_nights'),
         margin: "normal",
         variant: "outlined"
       }), _react.default.createElement(_TextField.default, {
         id: "outlined-name",
         label: "Maximum Nights",
         className: classes.textField,
-        value: this.state.maximumnights,
-        onChange: this.handleChange('maximumnights'),
+        value: this.state.maximum_nights,
+        onChange: this.handleChange('maximum_nights'),
         margin: "normal",
         variant: "outlined"
       })), _react.default.createElement(_Button.default, {
         variant: "contained",
         color: "primary",
+        fullWidth: true,
         onClick: function onClick() {
           return _this4.onSubmit();
         }
-      }, "Submit"), _react.default.createElement("p", null, this.state.prediction));
+      }, "Submit"), _react.default.createElement("h2", {
+        className: "text-center"
+      }, this.state.prediction && "$".concat(this.state.prediction)));
     }
   }]);
 
@@ -56773,7 +57043,7 @@ function (_React$Component) {
 var _default = (0, _styles.withStyles)(styles)(InputForm);
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/TextField/index.js","@material-ui/core/MenuItem":"node_modules/@material-ui/core/MenuItem/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/styles/index.js","@material-ui/core/Button":"node_modules/@material-ui/core/Button/index.js","./neighborhoods":"src/components/form/neighborhoods.js","./room-types":"src/components/form/room-types.js","./bed-types":"src/components/form/bed-types.js","./zip-codes":"src/components/form/zip-codes.js","../../actions/fetch/predict":"src/actions/fetch/predict.js"}],"src/pages/input-form.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/TextField/index.js","@material-ui/core/MenuItem":"node_modules/@material-ui/core/MenuItem/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/styles/index.js","@material-ui/core/Button":"node_modules/@material-ui/core/Button/index.js","@material-ui/core/InputAdornment":"node_modules/@material-ui/core/InputAdornment/index.js","./neighborhoods":"src/components/form/neighborhoods.js","./room-types":"src/components/form/room-types.js","./bed-types":"src/components/form/bed-types.js","./zip-codes":"src/components/form/zip-codes.js","./property-types":"src/components/form/property-types.js","../../actions/fetch/predict":"src/actions/fetch/predict.js"}],"src/pages/input-form.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57389,7 +57659,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55768" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52743" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -3,10 +3,12 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import neighborhoods from './neighborhoods';
 import roomtypes from './room-types';
 import bedtypes from './bed-types';
 import zipcodes from './zip-codes';
+import propertytypes from './property-types'
 import fetchPrediction from '../../actions/fetch/predict';
 
 const styles = theme => ({
@@ -33,37 +35,38 @@ class InputForm extends React.Component {
         this.state = {
             prediction: '',
             neighborhood: '',
-            roomtype: '',
-            bedtype: '',
+            property_type: '',
+            room_type: '',
+            bed_type: '',
             zipcode: '',
             accommodates: '',
             bathrooms: '',
             bedrooms: '',
             beds: '',
-            guestsincluded: '',
-            extrapeople: '',
-            minimumnights: '',
-            maximumnights: '',
-            heat_lamps: false,
-            sound_system: false,
-            shared_gym: false,
-            pack_n_play_travel_crib: false,
-            balcony: false,
-            waterfront: false,
-            fire_pit: false,
-            wine_cooler: false,
-            shared_hot_tub: false,
-            doorman: false,
-            printer: false,
-            shared_pool: false,
-            ski_in_Ski_out: false,
-            private_gym: false,
-            heated_towel_rack: false,
-            mountain_view: false,
-            formal_dining_area: false,
-            bidet: false,
-            standing_valet: false,
-            sun_loungers: false
+            guests_included: '',
+            extra_people: '',
+            minimum_nights: '',
+            maximum_nights: '',
+            "Heat lamps": false,
+            "Sound system": false,
+            "Shared gym": false,
+            "Pack n Play/travel crib": false,
+            "Balcony": false,
+            "Waterfront": false,
+            "Fire pit": false,
+            "Wine cooler": false,
+            "Shared hot tub": false,
+            "Doorman":  false,
+            "Printer": false,
+            "Shared pool": false,
+            "Ski-in/Ski-out": false,
+            "Private gym": false,
+            "Heated towel rack": false,
+            "Mountain view": false,
+            "Formal dining area": false,
+            "Bidet": false,
+            "Standing valet": false,
+            "Sun loungers": false
         }
     }
 
@@ -111,13 +114,36 @@ class InputForm extends React.Component {
                         ))}
                     </TextField>
                     <TextField
-                        id="outlined-select-roomtype"
+                        id="outlined-select-property_type"
+                        select
+                        label="Property Type"
+                        fullWidth
+                        className={classes.textField}
+                        value={this.state.property_type}
+                        onChange={this.handleChange('property_type')}
+                        SelectProps={{
+                            MenuProps: {
+                                className: classes.menu,
+                            },
+                        }}
+                        // helperText="Please select type of room"
+                        margin="normal"
+                        variant="outlined"
+                    >
+                        {propertytypes.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    <TextField
+                        id="outlined-select-room_type"
                         select
                         label="Room Type"
                         fullWidth
                         className={classes.textField}
-                        value={this.state.roomtype}
-                        onChange={this.handleChange('roomtype')}
+                        value={this.state.room_type}
+                        onChange={this.handleChange('room_type')}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
@@ -134,13 +160,13 @@ class InputForm extends React.Component {
                         ))}
                     </TextField>
                     <TextField
-                        id="outlined-select-bedtype"
+                        id="outlined-select-bed_type"
                         select
                         label="Bed Type"
                         className={classes.textField}
-                        value={this.state.bedtype}
+                        value={this.state.bed_type}
                         fullWidth
-                        onChange={this.handleChange('bedtype')}
+                        onChange={this.handleChange('bed_type')}
                         SelectProps={{
                             MenuProps: {
                                 className: classes.menu,
@@ -219,8 +245,8 @@ class InputForm extends React.Component {
                         id="outlined-name"
                         label="Guests Included"
                         className={classes.textField}
-                        value={this.state.guestsincluded}
-                        onChange={this.handleChange('guestsincluded')}
+                        value={this.state.guests_included}
+                        onChange={this.handleChange('guests_included')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -228,17 +254,20 @@ class InputForm extends React.Component {
                         id="outlined-name"
                         label="Charge for Extra People"
                         className={classes.textField}
-                        value={this.state.extrapeople}
-                        onChange={this.handleChange('extrapeople')}
+                        value={this.state.extra_people}
+                        onChange={this.handleChange('extra_people')}
                         margin="normal"
                         variant="outlined"
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                        }}
                     />
                     <TextField
                         id="outlined-name"
                         label="Minimum Nights"
                         className={classes.textField}
-                        value={this.state.minimumnights}
-                        onChange={this.handleChange('minimumnights')}
+                        value={this.state.minimum_nights}
+                        onChange={this.handleChange('minimum_nights')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -246,8 +275,8 @@ class InputForm extends React.Component {
                         id="outlined-name"
                         label="Maximum Nights"
                         className={classes.textField}
-                        value={this.state.maximumnights}
-                        onChange={this.handleChange('maximumnights')}
+                        value={this.state.maximum_nights}
+                        onChange={this.handleChange('maximum_nights')}
                         margin="normal"
                         variant="outlined"
                     />
@@ -255,9 +284,10 @@ class InputForm extends React.Component {
                 <Button
                     variant="contained"
                     color="primary"
+                    fullWidth
                     onClick={() => this.onSubmit()}
                 >Submit</Button>
-                <p>{this.state.prediction}</p>
+                <h2 className="text-center">{this.state.prediction && `$${this.state.prediction}`}</h2>
             </form>
         );
     }
