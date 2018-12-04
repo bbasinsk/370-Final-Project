@@ -8,6 +8,9 @@ export default class WriteUpPage extends React.Component {
             <div className='container'>
                 <h1 style={{textAlign: "center"}} >Write Up</h1>
 
+                <p>The research paper for this project can be found <a href="https://docs.google.com/document/d/1KV3nNC6_EUo97waj307tN7QIPBwS3h11EIVTe_HNAPI/edit?usp=sharing">here</a></p>
+
+
                 <h2>Purpose of the Topic</h2>
                 <Typography variant="body1" paragraph={true} gutterBottom> 
                     The purpose of this research is to better understand if features of a home impact the amount of income a home will make when listed on Airbnb. This is a relevant topic to research because over the years, Airbnb has gained more attraction and property owners have the option to place their property on Airbnb over renting it out or even put up a listing for short periods of time when their property is not occupied.
@@ -31,7 +34,6 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </p>
                 </Typography>
 
-
                 <h2 variant="h2" gutterBottom>Data Exploration</h2>
                 <p>
                     Interpretation:
@@ -39,7 +41,7 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </p>
 
                 <h4 variant="h4">Question: How do number of bedrooms affect estimated income per month?</h4>
-                <img src={images.img1}/>
+                <img src={images.img1} style={{justifyContent: 'center', alignItems: 'center', width: "80%"}}/>
                 <p>
                     The violin plot helps clearly show the median estimated income per month based on the number of bedrooms the AirBnB provides. The general trend shows that as the number of bedrooms increases, the estimated income per month for the host increases. This could be due to the fact that a greater number of bedrooms is able to accomodate more people which leads to a higher price rate. 0 bedrooms has a greater median estimate income than 1 bedroom which could be due to the fact that there are different room types such as a studio which may or may not have a bedroom. 
                 </p>
@@ -48,32 +50,32 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </p>
 
                 <h4 variant="h4">Question: How many listings are within each neighborhood?</h4>
-                <img src="../../../images/DataExploration/image2.png"/>
+                <img src={images.img2} style={{justifyContent: 'center', alignItems: 'center'}}/>
                 <p>
                     Interpretation: The graph reveals that Capitol Hill, Downtown, and other neighborhoods have the highest counts for listings. Capitol Hill and Downtown could be consider more urban areas, and thus we might expect that more people would rent out listings closer to the center of the city. In regards to other neighborhoods, this separate grouping could show that there are multiple listings in between the larger neighborhoods listed within the dataset.
                 </p>
 
                 <h4 variant="h4">Question: How does estimated monthly income differ between neighborhoods?</h4>
-                <img src="../../../images/DataExploration/image3.png"/>
+                <img src={images.img3} style={{justifyContent: 'center', alignItems: 'center'}}/>
                 <p>
                     Interpretation: Although there are differing counts of listings per neighborhood, the distribution of estimated monthly income per neighborhood is relatively similar. This similar distribution can be seen within the similar peaks for most neighborhoods, as well as the clustering of the points between the 2500 and 5000 estimated income per month marks. Thus, although there are more listings in certain neighborhoods than others, the distribution of estimated income per month is relatively the same for most of the neighborhoods within the dataset.
                 </p>
 
                 <h4 variant="h4">Question: how does estimated monthly income differ between property types?</h4>
-                <img src="../../../images/DataExploration/image4.png"/>
+                <img src={images.img4}/>
                 <p>
                     Interpretation: Property types with the more listings seem to have the more variety in terms of estimated income per month. An example of this is the “House” property type, which has estimated income data points across the  entire range of the y-axis. An insight that can be drawn from this graph is that the more listings of a specific property type there are, the more likely there is to be a range on its estimated income per month.
                 </p>
 
                 <h4 variant="h4">Question: Does the rating of the listing impact the estimated monthly income of the listing?</h4>
-                <img src="../../../images/DataExploration/image5.png"/>
+                <img src={images.img5}/>
                 <p>
                     Interpretation: There seems to be a positive correlation between the review scores rating and the estimated income per month. There is a clear grouping of points toward the right side of the graph, indicating that not only do higher scores obtain more estimated income per month, but that more people tend to book or leave reviews on homes with previously high review score ratings. 
                 </p>
 
                 <h2 variant="h2" gutterBottom>Understanding of Variables</h2>
                 <h4 variant="h4">How did we select our features?</h4>
-                <img src="../../../images/DataExploration/image6.png"/>
+                <img src={images.img6} style={{justifyContent: 'center', alignItems: 'center'}}/>
 
                 <p>
                     During the exploratory phase, our group built a correlation matrix and then ranked all features that were correlated to estimated_income_per_month from largest to smallest. This gave the group a general understanding of the top features that were most correlated to the income.
@@ -103,7 +105,7 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                     The estimated average monthly income was not originally included within the dataset. The value was calculated using the equation listed on the website, which can be seen below:
                 </p>
 
-                <img src="../../../images/image7.png"/>
+                <img src={images.img7} style={{justifyContent: 'center', alignItems: 'center', width: "100%"}}/>
 
                 <p>
                     This value was added to the original dataset to allow our team to perform the calculations described above, as well as perform the data analysis described in the following sections.
@@ -154,7 +156,7 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                     The following residual plot shows how well our Random Forest Model performs. While this was our best model, our team thinks that we could improve the accuracy by including more predictors such as latitude/longitude as well as possibly performing natural language processing on descriptions.
                 </p>
 
-                <img src="../../../images/image8.png"/>
+                <img src={images.img8} style={{justifyContent: 'center', alignItems: 'center', width: "70%"}}/>
 
                 <h2 variant="h2" gutterBottom>Works Cited</h2>
                 <Typography variant="body1" gutterBottom> 
@@ -164,11 +166,11 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </Typography>
 
                 <h2 variant="h2" gutterBottom>Our Team</h2>
-                <p>Our team is comprised of students from the University of Washington Information school</p>
-                <img src="../../../images/image9.png"/>
-                <img src="../../../images/image10.png"/>
-                <img src="../../../images/image11.png"/>
-                <img src="../../../images/image12.jpg"/>
+                <p>Our team is comprised of students from the University of Washington Information school. This project was created for INFO 370, "Core Methods in Data Science".</p>
+                    <img src={images.img9} style={{justifyContent: 'center', alignItems: 'center', width: "20%", borderRadius: "50%"}}/>
+                    <img src={images.img10} style={{justifyContent: 'center', alignItems: 'center', width: "20%", borderRadius: "50%"}}/>
+                    <img src={images.img11} style={{justifyContent: 'center', alignItems: 'center', width: "20%", borderRadius: "50%"}}/>
+                    <img src={images.img12} style={{justifyContent: 'center', alignItems: 'center', width: "20%", borderRadius: "50%"}}/>
             </div>
         );
     }
