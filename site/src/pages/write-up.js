@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
+import images from '../assets';
 
 export default class WriteUpPage extends React.Component {
     render() {
@@ -38,7 +39,7 @@ Airbnb has grown in the past few years, affecting the hospitality industry signi
                 </p>
 
                 <h4 variant="h4">Question: How do number of bedrooms affect estimated income per month?</h4>
-                <img src="../../../images/DataExploration/image1.png"/>
+                <img src={images.img1}/>
                 <p>
                     The violin plot helps clearly show the median estimated income per month based on the number of bedrooms the AirBnB provides. The general trend shows that as the number of bedrooms increases, the estimated income per month for the host increases. This could be due to the fact that a greater number of bedrooms is able to accomodate more people which leads to a higher price rate. 0 bedrooms has a greater median estimate income than 1 bedroom which could be due to the fact that there are different room types such as a studio which may or may not have a bedroom. 
                 </p>
