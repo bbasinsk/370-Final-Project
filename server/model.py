@@ -88,7 +88,7 @@ def build_classifier(features, outcome):
 
     # defines a grid to search through
     param_grid = {
-        'RandomForestRegressor__n_estimators': [100]
+        'RandomForestRegressor__n_estimators': [1000]
     }
 
     # performs a grid search of pipeline
