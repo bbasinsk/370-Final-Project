@@ -5,7 +5,7 @@ export default class InputFormPage extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Input Form</h1>
+                <h1>Airbnb Monthly Income Prediction</h1>
                 <Form />
             </div>
         );

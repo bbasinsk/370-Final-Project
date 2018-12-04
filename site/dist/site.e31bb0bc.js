@@ -55974,7 +55974,1535 @@ Object.defineProperty(exports, "default", {
 });
 
 var _MenuItem = _interopRequireDefault(require("./MenuItem"));
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./MenuItem":"node_modules/@material-ui/core/MenuItem/MenuItem.js"}],"node_modules/@material-ui/core/InputAdornment/InputAdornment.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./MenuItem":"node_modules/@material-ui/core/MenuItem/MenuItem.js"}],"node_modules/@material-ui/core/StepConnector/StepConnector.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      flex: '1 1 auto'
+    },
+
+    /* Styles applied to the root element if `orientation="horizontal"`. */
+    horizontal: {},
+
+    /* Styles applied to the root element if `orientation="vertical"`. */
+    vertical: {
+      marginLeft: 12,
+      // half icon
+      padding: '0 0 8px'
+    },
+
+    /* Styles applied to the root element if `alternativeLabel={true}`. */
+    alternativeLabel: {
+      position: 'absolute',
+      top: 8 + 4,
+      left: 'calc(-50% + 20px)',
+      right: 'calc(50% + 20px)'
+    },
+
+    /* Styles applied to the root element if `active={true}`. */
+    active: {},
+
+    /* Styles applied to the root element if `completed={true}`. */
+    completed: {},
+
+    /* Styles applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the line element. */
+    line: {
+      display: 'block',
+      borderColor: theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[600]
+    },
+
+    /* Styles applied to the root element if `orientation="horizontal"`. */
+    lineHorizontal: {
+      borderTopStyle: 'solid',
+      borderTopWidth: 1
+    },
+
+    /* Styles applied to the root element if `orientation="vertical"`. */
+    lineVertical: {
+      borderLeftStyle: 'solid',
+      borderLeftWidth: 1,
+      minHeight: 24
+    }
+  };
+};
+
+exports.styles = styles;
+
+function StepConnector(props) {
+  var _classNames, _classNames2;
+
+  var active = props.active,
+      alternativeLabel = props.alternativeLabel,
+      classes = props.classes,
+      classNameProp = props.className,
+      completed = props.completed,
+      disabled = props.disabled,
+      index = props.index,
+      orientation = props.orientation,
+      other = (0, _objectWithoutProperties2.default)(props, ["active", "alternativeLabel", "classes", "className", "completed", "disabled", "index", "orientation"]);
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: (0, _classnames.default)(classes.root, classes[orientation], (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.alternativeLabel, alternativeLabel), (0, _defineProperty2.default)(_classNames, classes.active, active), (0, _defineProperty2.default)(_classNames, classes.completed, completed), (0, _defineProperty2.default)(_classNames, classes.disabled, disabled), _classNames), classNameProp)
+  }, other), _react.default.createElement("span", {
+    className: (0, _classnames.default)(classes.line, (_classNames2 = {}, (0, _defineProperty2.default)(_classNames2, classes.lineHorizontal, orientation === 'horizontal'), (0, _defineProperty2.default)(_classNames2, classes.lineVertical, orientation === 'vertical'), _classNames2))
+  }));
+}
+
+StepConnector.propTypes = "development" !== "production" ? {
+  /**
+   * @ignore
+   */
+  active: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Set internally by Step when it's supplied with the alternativeLabel property.
+   */
+  alternativeLabel: _propTypes.default.bool,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * @ignore
+   */
+  completed: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  disabled: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  index: _propTypes.default.number,
+
+  /**
+   * @ignore
+   */
+  orientation: _propTypes.default.oneOf(['horizontal', 'vertical'])
+} : {};
+StepConnector.defaultProps = {
+  alternativeLabel: false,
+  orientation: 'horizontal'
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStepConnector'
+})(StepConnector);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js"}],"node_modules/@material-ui/core/StepConnector/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _StepConnector.default;
+  }
+});
+
+var _StepConnector = _interopRequireDefault(require("./StepConnector"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./StepConnector":"node_modules/@material-ui/core/StepConnector/StepConnector.js"}],"node_modules/@material-ui/core/Stepper/Stepper.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var _Paper = _interopRequireDefault(require("../Paper"));
+
+var _StepConnector = _interopRequireDefault(require("../StepConnector")); // @inheritedComponent Paper
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'flex',
+    padding: 24
+  },
+
+  /* Styles applied to the root element if `orientation="horizontal"`. */
+  horizontal: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+
+  /* Styles applied to the root element if `orientation="vertical"`. */
+  vertical: {
+    flexDirection: 'column'
+  },
+
+  /* Styles applied to the root element if `alternativeLabel={true}`. */
+  alternativeLabel: {
+    alignItems: 'flex-start'
+  }
+};
+exports.styles = styles;
+
+function Stepper(props) {
+  var activeStep = props.activeStep,
+      alternativeLabel = props.alternativeLabel,
+      children = props.children,
+      classes = props.classes,
+      classNameProp = props.className,
+      connectorProp = props.connector,
+      nonLinear = props.nonLinear,
+      orientation = props.orientation,
+      other = (0, _objectWithoutProperties2.default)(props, ["activeStep", "alternativeLabel", "children", "classes", "className", "connector", "nonLinear", "orientation"]);
+  var className = (0, _classnames.default)(classes.root, classes[orientation], (0, _defineProperty2.default)({}, classes.alternativeLabel, alternativeLabel), classNameProp);
+  var connector = _react.default.isValidElement(connectorProp) ? _react.default.cloneElement(connectorProp, {
+    orientation: orientation
+  }) : null;
+
+  var childrenArray = _react.default.Children.toArray(children);
+
+  var steps = childrenArray.map(function (step, index) {
+    var controlProps = {
+      alternativeLabel: alternativeLabel,
+      connector: connectorProp,
+      last: index + 1 === childrenArray.length,
+      orientation: orientation
+    };
+    var state = {
+      index: index,
+      active: false,
+      completed: false,
+      disabled: false
+    };
+
+    if (activeStep === index) {
+      state.active = true;
+    } else if (!nonLinear && activeStep > index) {
+      state.completed = true;
+    } else if (!nonLinear && activeStep < index) {
+      state.disabled = true;
+    }
+
+    return [!alternativeLabel && connector && index !== 0 && _react.default.cloneElement(connector, (0, _extends2.default)({
+      key: index
+    }, state)), _react.default.cloneElement(step, (0, _extends2.default)({}, controlProps, state, step.props))];
+  });
+  return _react.default.createElement(_Paper.default, (0, _extends2.default)({
+    square: true,
+    elevation: 0,
+    className: className
+  }, other), steps);
+}
+
+Stepper.propTypes = "development" !== "production" ? {
+  /**
+   * Set the active step (zero based index).
+   */
+  activeStep: _propTypes.default.number,
+
+  /**
+   * If set to 'true' and orientation is horizontal,
+   * then the step label will be positioned under the icon.
+   */
+  alternativeLabel: _propTypes.default.bool,
+
+  /**
+   * Two or more `<Step />` components.
+   */
+  children: _propTypes.default.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * A component to be placed between each step.
+   */
+  connector: _propTypes.default.element,
+
+  /**
+   * If set the `Stepper` will not assist in controlling steps for linear flow.
+   */
+  nonLinear: _propTypes.default.bool,
+
+  /**
+   * The stepper orientation (layout flow direction).
+   */
+  orientation: _propTypes.default.oneOf(['horizontal', 'vertical'])
+} : {};
+Stepper.defaultProps = {
+  activeStep: 0,
+  alternativeLabel: false,
+  connector: _react.default.createElement(_StepConnector.default, null),
+  nonLinear: false,
+  orientation: 'horizontal'
+};
+Stepper.muiName = 'Stepper';
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStepper'
+})(Stepper);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js","../Paper":"node_modules/@material-ui/core/Paper/index.js","../StepConnector":"node_modules/@material-ui/core/StepConnector/index.js"}],"node_modules/@material-ui/core/Stepper/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _Stepper.default;
+  }
+});
+
+var _Stepper = _interopRequireDefault(require("./Stepper"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./Stepper":"node_modules/@material-ui/core/Stepper/Stepper.js"}],"node_modules/@material-ui/core/Step/Step.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _warning = _interopRequireDefault(require("warning"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {},
+
+  /* Styles applied to the root element if `orientation="horizontal"`. */
+  horizontal: {
+    paddingLeft: 8,
+    paddingRight: 8,
+    '&:first-child': {
+      paddingLeft: 0
+    },
+    '&:last-child': {
+      paddingRight: 0
+    }
+  },
+
+  /* Styles applied to the root element if `orientation="vertical"`. */
+  vertical: {},
+
+  /* Styles applied to the root element if `alternativeLabel={true}`. */
+  alternativeLabel: {
+    flex: 1,
+    position: 'relative'
+  },
+
+  /* Styles applied to the root element if `completed={true}`. */
+  completed: {}
+};
+exports.styles = styles;
+
+function Step(props) {
+  var _classNames;
+
+  var active = props.active,
+      alternativeLabel = props.alternativeLabel,
+      children = props.children,
+      classes = props.classes,
+      classNameProp = props.className,
+      completed = props.completed,
+      connector = props.connector,
+      disabled = props.disabled,
+      index = props.index,
+      last = props.last,
+      orientation = props.orientation,
+      other = (0, _objectWithoutProperties2.default)(props, ["active", "alternativeLabel", "children", "classes", "className", "completed", "connector", "disabled", "index", "last", "orientation"]);
+  var className = (0, _classnames.default)(classes.root, classes[orientation], (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.alternativeLabel, alternativeLabel), (0, _defineProperty2.default)(_classNames, classes.completed, completed), _classNames), classNameProp);
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: className
+  }, other), connector && alternativeLabel && index !== 0 && _react.default.cloneElement(connector, {
+    orientation: orientation,
+    alternativeLabel: alternativeLabel,
+    index: index,
+    active: active,
+    completed: completed,
+    disabled: disabled
+  }), _react.default.Children.map(children, function (child) {
+    if (!_react.default.isValidElement(child)) {
+      return null;
+    }
+
+    "development" !== "production" ? (0, _warning.default)(child.type !== _react.default.Fragment, ["Material-UI: the Step component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n')) : void 0;
+    return _react.default.cloneElement(child, (0, _extends2.default)({
+      active: active,
+      alternativeLabel: alternativeLabel,
+      completed: completed,
+      disabled: disabled,
+      last: last,
+      icon: index + 1,
+      orientation: orientation
+    }, child.props));
+  }));
+}
+
+Step.propTypes = "development" !== "production" ? {
+  /**
+   * Sets the step as active. Is passed to child components.
+   */
+  active: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Set internally by Stepper when it's supplied with the alternativeLabel property.
+   */
+  alternativeLabel: _propTypes.default.bool,
+
+  /**
+   * Should be `Step` sub-components such as `StepLabel`, `StepContent`.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * Mark the step as completed. Is passed to child components.
+   */
+  completed: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Passed down from Stepper if alternativeLabel is also set.
+   */
+  connector: _propTypes.default.element,
+
+  /**
+   * Mark the step as disabled, will also disable the button if
+   * `StepButton` is a child of `Step`. Is passed to child components.
+   */
+  disabled: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Used internally for numbering.
+   */
+  index: _propTypes.default.number,
+
+  /**
+   * @ignore
+   */
+  last: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  orientation: _propTypes.default.oneOf(['horizontal', 'vertical'])
+} : {};
+Step.defaultProps = {
+  active: false,
+  completed: false,
+  disabled: false
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStep'
+})(Step);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","warning":"node_modules/warning/warning.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js"}],"node_modules/@material-ui/core/Step/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _Step.default;
+  }
+});
+
+var _Step = _interopRequireDefault(require("./Step"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./Step":"node_modules/@material-ui/core/Step/Step.js"}],"node_modules/@material-ui/core/internal/svg-icons/CheckCircle.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _pure = _interopRequireDefault(require("recompose/pure"));
+
+var _SvgIcon = _interopRequireDefault(require("../../SvgIcon"));
+
+var _ref = _react.default.createElement("path", {
+  d: "M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-2 17l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"
+});
+/**
+ * @ignore - internal component.
+ */
+
+
+var CheckCircle = function CheckCircle(props) {
+  return _react.default.createElement(_SvgIcon.default, props, _ref);
+};
+
+CheckCircle = (0, _pure.default)(CheckCircle);
+CheckCircle.muiName = 'SvgIcon';
+var _default = CheckCircle;
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"node_modules/react/index.js","recompose/pure":"node_modules/recompose/pure.js","../../SvgIcon":"node_modules/@material-ui/core/SvgIcon/index.js"}],"node_modules/@material-ui/core/internal/svg-icons/Warning.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _pure = _interopRequireDefault(require("recompose/pure"));
+
+var _SvgIcon = _interopRequireDefault(require("../../SvgIcon"));
+
+var _ref = _react.default.createElement("path", {
+  d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+});
+/**
+ * @ignore - internal component.
+ */
+
+
+var Warning = function Warning(props) {
+  return _react.default.createElement(_SvgIcon.default, props, _ref);
+};
+
+Warning = (0, _pure.default)(Warning);
+Warning.muiName = 'SvgIcon';
+var _default = Warning;
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"node_modules/react/index.js","recompose/pure":"node_modules/recompose/pure.js","../../SvgIcon":"node_modules/@material-ui/core/SvgIcon/index.js"}],"node_modules/@material-ui/core/StepIcon/StepIcon.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _CheckCircle = _interopRequireDefault(require("../internal/svg-icons/CheckCircle"));
+
+var _Warning = _interopRequireDefault(require("../internal/svg-icons/Warning"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var _SvgIcon = _interopRequireDefault(require("../SvgIcon"));
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'block',
+      color: theme.palette.text.disabled,
+      '&$active': {
+        color: theme.palette.primary.main
+      },
+      '&$completed': {
+        color: theme.palette.primary.main
+      },
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    },
+
+    /* Styles applied to the SVG text element. */
+    text: {
+      fill: theme.palette.primary.contrastText,
+      fontSize: theme.typography.caption.fontSize,
+      fontFamily: theme.typography.fontFamily
+    },
+
+    /* Styles applied to the root element if `active={true}`. */
+    active: {},
+
+    /* Styles applied to the root element if `completed={true}`. */
+    completed: {},
+
+    /* Styles applied to the root element if `error={true}`. */
+    error: {}
+  };
+};
+
+exports.styles = styles;
+
+var _ref = _react.default.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "12"
+});
+
+function StepIcon(props) {
+  var completed = props.completed,
+      icon = props.icon,
+      active = props.active,
+      error = props.error,
+      classes = props.classes;
+
+  if (typeof icon === 'number' || typeof icon === 'string') {
+    if (error) {
+      return _react.default.createElement(_Warning.default, {
+        className: (0, _classnames.default)(classes.root, classes.error)
+      });
+    }
+
+    if (completed) {
+      return _react.default.createElement(_CheckCircle.default, {
+        className: (0, _classnames.default)(classes.root, classes.completed)
+      });
+    }
+
+    return _react.default.createElement(_SvgIcon.default, {
+      className: (0, _classnames.default)(classes.root, (0, _defineProperty2.default)({}, classes.active, active))
+    }, _ref, _react.default.createElement("text", {
+      className: classes.text,
+      x: "12",
+      y: "16",
+      textAnchor: "middle"
+    }, icon));
+  }
+
+  return icon;
+}
+
+StepIcon.propTypes = "development" !== "production" ? {
+  /**
+   * Whether this step is active.
+   */
+  active: _propTypes.default.bool,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * Mark the step as completed. Is passed to child components.
+   */
+  completed: _propTypes.default.bool,
+
+  /**
+   * Mark the step as failed.
+   */
+  error: _propTypes.default.bool,
+
+  /**
+   * The icon displayed by the step label.
+   */
+  icon: _propTypes.default.node.isRequired
+} : {};
+StepIcon.defaultProps = {
+  active: false,
+  completed: false,
+  error: false
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStepIcon'
+})(StepIcon);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","../internal/svg-icons/CheckCircle":"node_modules/@material-ui/core/internal/svg-icons/CheckCircle.js","../internal/svg-icons/Warning":"node_modules/@material-ui/core/internal/svg-icons/Warning.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js","../SvgIcon":"node_modules/@material-ui/core/SvgIcon/index.js"}],"node_modules/@material-ui/core/StepIcon/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _StepIcon.default;
+  }
+});
+
+var _StepIcon = _interopRequireDefault(require("./StepIcon"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./StepIcon":"node_modules/@material-ui/core/StepIcon/StepIcon.js"}],"node_modules/@material-ui/core/StepLabel/StepLabel.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var _Typography = _interopRequireDefault(require("../Typography"));
+
+var _StepIcon = _interopRequireDefault(require("../StepIcon"));
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      '&$alternativeLabel': {
+        flexDirection: 'column'
+      },
+      '&$disabled': {
+        cursor: 'default'
+      }
+    },
+
+    /* Styles applied to the root element if `orientation="horiizontal". */
+    horizontal: {},
+
+    /* Styles applied to the root element if `orientation="vertical". */
+    vertical: {},
+
+    /* Styles applied to the `Typography` component which wraps `children`. */
+    label: {
+      color: theme.palette.text.secondary,
+      '&$active': {
+        color: theme.palette.text.primary,
+        fontWeight: 500
+      },
+      '&$completed': {
+        color: theme.palette.text.primary,
+        fontWeight: 500
+      },
+      '&$alternativeLabel': {
+        textAlign: 'center',
+        marginTop: 16
+      },
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    },
+
+    /* Styles applied to the `Typography` component if `active={true}`. */
+    active: {},
+
+    /* Styles applied to the `Typography` component if `completed={true}`. */
+    completed: {},
+
+    /* Styles applied to the root element and `Typography` component if `error={true}`. */
+    error: {},
+
+    /* Styles applied to the root element and `Typography` component if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the `icon` container element. */
+    iconContainer: {
+      flexShrink: 0,
+      // Fix IE 11 issue
+      display: 'flex',
+      paddingRight: 8,
+      '&$alternativeLabel': {
+        paddingRight: 0
+      }
+    },
+
+    /* Styles applied to the root & icon container and `Typography` if `alternativeLabel={true}`. */
+    alternativeLabel: {},
+
+    /* Styles applied to the container element which wraps `Typography` and `optional`. */
+    labelContainer: {
+      width: '100%'
+    }
+  };
+};
+
+exports.styles = styles;
+
+function StepLabel(props) {
+  var _classNames, _classNames3;
+
+  var active = props.active,
+      alternativeLabel = props.alternativeLabel,
+      children = props.children,
+      classes = props.classes,
+      classNameProp = props.className,
+      completed = props.completed,
+      disabled = props.disabled,
+      error = props.error,
+      icon = props.icon,
+      last = props.last,
+      optional = props.optional,
+      orientation = props.orientation,
+      StepIconComponentProp = props.StepIconComponent,
+      StepIconProps = props.StepIconProps,
+      other = (0, _objectWithoutProperties2.default)(props, ["active", "alternativeLabel", "children", "classes", "className", "completed", "disabled", "error", "icon", "last", "optional", "orientation", "StepIconComponent", "StepIconProps"]);
+  var StepIconComponent = StepIconComponentProp;
+
+  if (icon && !StepIconComponent) {
+    StepIconComponent = _StepIcon.default;
+  }
+
+  return _react.default.createElement("span", (0, _extends2.default)({
+    className: (0, _classnames.default)(classes.root, classes[orientation], (_classNames = {}, (0, _defineProperty2.default)(_classNames, classes.disabled, disabled), (0, _defineProperty2.default)(_classNames, classes.alternativeLabel, alternativeLabel), (0, _defineProperty2.default)(_classNames, classes.error, error), _classNames), classNameProp)
+  }, other), icon || StepIconComponent ? _react.default.createElement("span", {
+    className: (0, _classnames.default)(classes.iconContainer, (0, _defineProperty2.default)({}, classes.alternativeLabel, alternativeLabel))
+  }, _react.default.createElement(StepIconComponent, (0, _extends2.default)({
+    completed: completed,
+    active: active,
+    error: error,
+    icon: icon
+  }, StepIconProps))) : null, _react.default.createElement("span", {
+    className: classes.labelContainer
+  }, _react.default.createElement(_Typography.default, {
+    component: "span",
+    className: (0, _classnames.default)(classes.label, (_classNames3 = {}, (0, _defineProperty2.default)(_classNames3, classes.alternativeLabel, alternativeLabel), (0, _defineProperty2.default)(_classNames3, classes.completed, completed), (0, _defineProperty2.default)(_classNames3, classes.active, active), (0, _defineProperty2.default)(_classNames3, classes.error, error), _classNames3))
+  }, children), optional));
+}
+
+StepLabel.propTypes = "development" !== "production" ? {
+  /**
+   * @ignore
+   * Sets the step as active. Is passed to child components.
+   */
+  active: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Set internally by Stepper when it's supplied with the alternativeLabel property.
+   */
+  alternativeLabel: _propTypes.default.bool,
+
+  /**
+   * In most cases will simply be a string containing a title for the label.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * @ignore
+   * Mark the step as completed. Is passed to child components.
+   */
+  completed: _propTypes.default.bool,
+
+  /**
+   * Mark the step as disabled, will also disable the button if
+   * `StepLabelButton` is a child of `StepLabel`. Is passed to child components.
+   */
+  disabled: _propTypes.default.bool,
+
+  /**
+   * Mark the step as failed.
+   */
+  error: _propTypes.default.bool,
+
+  /**
+   * Override the default icon.
+   */
+  icon: _propTypes.default.node,
+
+  /**
+   * @ignore
+   */
+  last: _propTypes.default.bool,
+
+  /**
+   * The optional node to display.
+   */
+  optional: _propTypes.default.node,
+
+  /**
+   * @ignore
+   */
+  orientation: _propTypes.default.oneOf(['horizontal', 'vertical']),
+
+  /**
+   * The component to render in place of the [`StepIcon`](/api/step-icon/).
+   */
+  StepIconComponent: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * Properties applied to the [`StepIcon`](/api/step-icon/) element.
+   */
+  StepIconProps: _propTypes.default.object
+} : {};
+StepLabel.defaultProps = {
+  active: false,
+  alternativeLabel: false,
+  completed: false,
+  disabled: false,
+  error: false,
+  last: false,
+  orientation: 'horizontal'
+};
+StepLabel.muiName = 'StepLabel';
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStepLabel'
+})(StepLabel);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","classnames":"node_modules/classnames/index.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js","../Typography":"node_modules/@material-ui/core/Typography/index.js","../StepIcon":"node_modules/@material-ui/core/StepIcon/index.js"}],"node_modules/@material-ui/core/StepLabel/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _StepLabel.default;
+  }
+});
+
+var _StepLabel = _interopRequireDefault(require("./StepLabel"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./StepLabel":"node_modules/@material-ui/core/StepLabel/StepLabel.js"}],"node_modules/@material-ui/core/Collapse/Collapse.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Transition = _interopRequireDefault(require("react-transition-group/Transition"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var _transitions = require("../styles/transitions");
+
+var _utils = require("../transitions/utils"); // @inheritedComponent Transition
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the container element. */
+    container: {
+      height: 0,
+      overflow: 'hidden',
+      transition: theme.transitions.create('height')
+    },
+
+    /* Styles applied to the container element when the transition has entered. */
+    entered: {
+      height: 'auto',
+      overflow: 'visible'
+    },
+
+    /* Styles applied to the outer wrapper element. */
+    wrapper: {
+      // Hack to get children with a negative margin to not falsify the height computation.
+      display: 'flex'
+    },
+
+    /* Styles applied to the inner wrapper element. */
+    wrapperInner: {
+      width: '100%'
+    }
+  };
+};
+/**
+ * The Collapse transition is used by the
+ * [Vertical Stepper](/demos/steppers/#vertical-stepper) StepContent component.
+ * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+ */
+
+
+exports.styles = styles;
+
+var Collapse =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inherits2.default)(Collapse, _React$Component);
+
+  function Collapse() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, Collapse);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Collapse)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _this.handleEnter = function (node) {
+      node.style.height = _this.props.collapsedHeight;
+
+      if (_this.props.onEnter) {
+        _this.props.onEnter(node);
+      }
+    };
+
+    _this.handleEntering = function (node) {
+      var _this$props = _this.props,
+          timeout = _this$props.timeout,
+          theme = _this$props.theme;
+      var wrapperHeight = _this.wrapperRef ? _this.wrapperRef.clientHeight : 0;
+
+      var _getTransitionProps = (0, _utils.getTransitionProps)(_this.props, {
+        mode: 'enter'
+      }),
+          transitionDuration = _getTransitionProps.duration;
+
+      if (timeout === 'auto') {
+        var duration2 = theme.transitions.getAutoHeightDuration(wrapperHeight);
+        node.style.transitionDuration = "".concat(duration2, "ms");
+        _this.autoTransitionDuration = duration2;
+      } else {
+        node.style.transitionDuration = typeof transitionDuration === 'string' ? transitionDuration : "".concat(transitionDuration, "ms");
+      }
+
+      node.style.height = "".concat(wrapperHeight, "px");
+
+      if (_this.props.onEntering) {
+        _this.props.onEntering(node);
+      }
+    };
+
+    _this.handleEntered = function (node) {
+      node.style.height = 'auto';
+
+      if (_this.props.onEntered) {
+        _this.props.onEntered(node);
+      }
+    };
+
+    _this.handleExit = function (node) {
+      var wrapperHeight = _this.wrapperRef ? _this.wrapperRef.clientHeight : 0;
+      node.style.height = "".concat(wrapperHeight, "px");
+
+      if (_this.props.onExit) {
+        _this.props.onExit(node);
+      }
+    };
+
+    _this.handleExiting = function (node) {
+      var _this$props2 = _this.props,
+          timeout = _this$props2.timeout,
+          theme = _this$props2.theme;
+      var wrapperHeight = _this.wrapperRef ? _this.wrapperRef.clientHeight : 0;
+
+      var _getTransitionProps2 = (0, _utils.getTransitionProps)(_this.props, {
+        mode: 'exit'
+      }),
+          transitionDuration = _getTransitionProps2.duration;
+
+      if (timeout === 'auto') {
+        var duration2 = theme.transitions.getAutoHeightDuration(wrapperHeight);
+        node.style.transitionDuration = "".concat(duration2, "ms");
+        _this.autoTransitionDuration = duration2;
+      } else {
+        node.style.transitionDuration = typeof transitionDuration === 'string' ? transitionDuration : "".concat(transitionDuration, "ms");
+      }
+
+      node.style.height = _this.props.collapsedHeight;
+
+      if (_this.props.onExiting) {
+        _this.props.onExiting(node);
+      }
+    };
+
+    _this.addEndListener = function (_, next) {
+      if (_this.props.timeout === 'auto') {
+        _this.timer = setTimeout(next, _this.autoTransitionDuration || 0);
+      }
+    };
+
+    return _this;
+  }
+
+  (0, _createClass2.default)(Collapse, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearTimeout(this.timer);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props3 = this.props,
+          children = _this$props3.children,
+          classes = _this$props3.classes,
+          className = _this$props3.className,
+          collapsedHeight = _this$props3.collapsedHeight,
+          Component = _this$props3.component,
+          onEnter = _this$props3.onEnter,
+          onEntered = _this$props3.onEntered,
+          onEntering = _this$props3.onEntering,
+          onExit = _this$props3.onExit,
+          onExiting = _this$props3.onExiting,
+          style = _this$props3.style,
+          theme = _this$props3.theme,
+          timeout = _this$props3.timeout,
+          other = (0, _objectWithoutProperties2.default)(_this$props3, ["children", "classes", "className", "collapsedHeight", "component", "onEnter", "onEntered", "onEntering", "onExit", "onExiting", "style", "theme", "timeout"]);
+      return _react.default.createElement(_Transition.default, (0, _extends2.default)({
+        onEnter: this.handleEnter,
+        onEntered: this.handleEntered,
+        onEntering: this.handleEntering,
+        onExit: this.handleExit,
+        onExiting: this.handleExiting,
+        addEndListener: this.addEndListener,
+        timeout: timeout === 'auto' ? null : timeout
+      }, other), function (state, childProps) {
+        return _react.default.createElement(Component, (0, _extends2.default)({
+          className: (0, _classnames.default)(classes.container, (0, _defineProperty2.default)({}, classes.entered, state === 'entered'), className),
+          style: (0, _extends2.default)({}, style, {
+            minHeight: collapsedHeight
+          })
+        }, childProps), _react.default.createElement("div", {
+          className: classes.wrapper,
+          ref: function ref(_ref) {
+            _this2.wrapperRef = _ref;
+          }
+        }, _react.default.createElement("div", {
+          className: classes.wrapperInner
+        }, children)));
+      });
+    }
+  }]);
+  return Collapse;
+}(_react.default.Component);
+
+Collapse.propTypes = "development" !== "production" ? {
+  /**
+   * The content node to be collapsed.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * The height of the container when collapsed.
+   */
+  collapsedHeight: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
+
+  /**
+   * If `true`, the component will transition in.
+   */
+  in: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  onEnter: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onEntered: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onEntering: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onExit: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  onExiting: _propTypes.default.func,
+
+  /**
+   * @ignore
+   */
+  style: _propTypes.default.object,
+
+  /**
+   * @ignore
+   */
+  theme: _propTypes.default.object.isRequired,
+
+  /**
+   * The duration for the transition, in milliseconds.
+   * You may specify a single timeout for all transitions, or individually with an object.
+   *
+   * Set to 'auto' to automatically calculate transition time based on height.
+   */
+  timeout: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.shape({
+    enter: _propTypes.default.number,
+    exit: _propTypes.default.number
+  }), _propTypes.default.oneOf(['auto'])])
+} : {};
+Collapse.defaultProps = {
+  collapsedHeight: '0px',
+  component: 'div',
+  timeout: _transitions.duration.standard
+};
+Collapse.muiSupportAuto = true;
+
+var _default = (0, _withStyles.default)(styles, {
+  withTheme: true,
+  name: 'MuiCollapse'
+})(Collapse);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","@babel/runtime/helpers/classCallCheck":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/classCallCheck.js","@babel/runtime/helpers/createClass":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/createClass.js","@babel/runtime/helpers/possibleConstructorReturn":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js","@babel/runtime/helpers/getPrototypeOf":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/getPrototypeOf.js","@babel/runtime/helpers/inherits":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/inherits.js","react":"node_modules/react/index.js","classnames":"node_modules/classnames/index.js","prop-types":"node_modules/prop-types/index.js","react-transition-group/Transition":"node_modules/react-transition-group/Transition.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js","../styles/transitions":"node_modules/@material-ui/core/styles/transitions.js","../transitions/utils":"node_modules/@material-ui/core/transitions/utils.js"}],"node_modules/@material-ui/core/Collapse/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _Collapse.default;
+  }
+});
+
+var _Collapse = _interopRequireDefault(require("./Collapse"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./Collapse":"node_modules/@material-ui/core/Collapse/Collapse.js"}],"node_modules/@material-ui/core/StepContent/StepContent.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.styles = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _warning = _interopRequireDefault(require("warning"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _Collapse = _interopRequireDefault(require("../Collapse"));
+
+var _withStyles = _interopRequireDefault(require("../styles/withStyles"));
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      marginTop: 8,
+      marginLeft: 12,
+      // half icon
+      paddingLeft: 8 + 12,
+      // margin + half icon
+      paddingRight: 8,
+      borderLeft: "1px solid ".concat(theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[600])
+    },
+
+    /* Styles applied to the root element if `last={true}` (controlled by `Step`). */
+    last: {
+      borderLeft: 'none'
+    },
+
+    /* Styles applied to the Transition component. */
+    transition: {}
+  };
+};
+
+exports.styles = styles;
+
+function StepContent(props) {
+  var active = props.active,
+      alternativeLabel = props.alternativeLabel,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      completed = props.completed,
+      last = props.last,
+      optional = props.optional,
+      orientation = props.orientation,
+      TransitionComponent = props.TransitionComponent,
+      transitionDurationProp = props.transitionDuration,
+      TransitionProps = props.TransitionProps,
+      other = (0, _objectWithoutProperties2.default)(props, ["active", "alternativeLabel", "children", "classes", "className", "completed", "last", "optional", "orientation", "TransitionComponent", "transitionDuration", "TransitionProps"]);
+  "development" !== "production" ? (0, _warning.default)(orientation === 'vertical', 'Material-UI: <StepContent /> is only designed for use with the vertical stepper.') : void 0;
+  var transitionDuration = transitionDurationProp;
+
+  if (transitionDurationProp === 'auto' && !TransitionComponent.muiSupportAuto) {
+    transitionDuration = undefined;
+  }
+
+  return _react.default.createElement("div", (0, _extends2.default)({
+    className: (0, _classnames.default)(classes.root, (0, _defineProperty2.default)({}, classes.last, last), className)
+  }, other), _react.default.createElement(TransitionComponent, (0, _extends2.default)({
+    in: active,
+    className: classes.transition,
+    timeout: transitionDuration,
+    unmountOnExit: true
+  }, TransitionProps), children));
+}
+
+StepContent.propTypes = "development" !== "production" ? {
+  /**
+   * @ignore
+   * Expands the content.
+   */
+  active: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Set internally by Step when it's supplied with the alternativeLabel property.
+   */
+  alternativeLabel: _propTypes.default.bool,
+
+  /**
+   * Step content.
+   */
+  children: _propTypes.default.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: _propTypes.default.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: _propTypes.default.string,
+
+  /**
+   * @ignore
+   */
+  completed: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  last: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   * Set internally by Step when it's supplied with the optional property.
+   */
+  optional: _propTypes.default.bool,
+
+  /**
+   * @ignore
+   */
+  orientation: _propTypes.default.oneOf(['horizontal', 'vertical']),
+
+  /**
+   * Collapse component.
+   */
+  TransitionComponent: _propTypes.default.func,
+
+  /**
+   * Adjust the duration of the content expand transition.
+   * Passed as a property to the transition component.
+   *
+   * Set to 'auto' to automatically calculate transition time based on height.
+   */
+  transitionDuration: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.shape({
+    enter: _propTypes.default.number,
+    exit: _propTypes.default.number
+  }), _propTypes.default.oneOf(['auto'])]),
+
+  /**
+   * Properties applied to the `Transition` element.
+   */
+  TransitionProps: _propTypes.default.object
+} : {};
+StepContent.defaultProps = {
+  TransitionComponent: _Collapse.default,
+  transitionDuration: 'auto'
+};
+
+var _default = (0, _withStyles.default)(styles, {
+  name: 'MuiStepContent'
+})(StepContent);
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/defineProperty":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/defineProperty.js","@babel/runtime/helpers/objectWithoutProperties":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/objectWithoutProperties.js","react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js","warning":"node_modules/warning/warning.js","classnames":"node_modules/classnames/index.js","../Collapse":"node_modules/@material-ui/core/Collapse/index.js","../styles/withStyles":"node_modules/@material-ui/core/styles/withStyles.js"}],"node_modules/@material-ui/core/StepContent/index.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _StepContent.default;
+  }
+});
+
+var _StepContent = _interopRequireDefault(require("./StepContent"));
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@material-ui/core/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./StepContent":"node_modules/@material-ui/core/StepContent/StepContent.js"}],"node_modules/@material-ui/core/InputAdornment/InputAdornment.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -56601,7 +58129,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _default = 'http://localhost:5000';
+var _default = 'http://165.227.59.249:5000';
 exports.default = _default;
 },{}],"src/actions/fetch/predict.js":[function(require,module,exports) {
 "use strict";
@@ -56719,6 +58247,14 @@ var _styles = require("@material-ui/core/styles");
 
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
+var _Stepper = _interopRequireDefault(require("@material-ui/core/Stepper"));
+
+var _Step = _interopRequireDefault(require("@material-ui/core/Step"));
+
+var _StepLabel = _interopRequireDefault(require("@material-ui/core/StepLabel"));
+
+var _StepContent = _interopRequireDefault(require("@material-ui/core/StepContent"));
+
 var _InputAdornment = _interopRequireDefault(require("@material-ui/core/InputAdornment"));
 
 var _neighborhoods = _interopRequireDefault(require("./neighborhoods"));
@@ -56770,9 +58306,42 @@ var styles = function styles(theme) {
     },
     menu: {
       width: 200
+    },
+    root: {
+      width: '90%'
+    },
+    button: {
+      marginTop: theme.spacing.unit,
+      marginRight: theme.spacing.unit
+    },
+    actionsContainer: {
+      marginBottom: theme.spacing.unit * 2
+    },
+    resetContainer: {
+      padding: theme.spacing.unit * 3
     }
   };
 };
+
+function getSteps() {
+  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+}
+
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return "For each ad campaign that you create, you can control how much\n                you're willing to spend on clicks and conversions, which networks\n                and geographical locations you want your ads to show on, and more.";
+
+    case 1:
+      return 'An ad group contains one or more ads which target a shared set of keywords.';
+
+    case 2:
+      return "Try out different ad text to see what brings in the most customers,\n                and learn how to enhance your ads using features like ad extensions.\n                If you run into any problems with your ads, find out how to tell if\n                they're running and how to resolve approval issues.";
+
+    default:
+      return 'Unknown step';
+  }
+}
 
 var InputForm =
 /*#__PURE__*/
@@ -56819,12 +58388,38 @@ function (_React$Component) {
       "Formal dining area": false,
       "Bidet": false,
       "Standing valet": false,
-      "Sun loungers": false
+      "Sun loungers": false,
+      activeStep: 0
     };
     return _this;
   }
 
   _createClass(InputForm, [{
+    key: "handleNext",
+    value: function handleNext() {
+      this.setState(function (state) {
+        return {
+          activeStep: state.activeStep + 1
+        };
+      });
+    }
+  }, {
+    key: "handleBack",
+    value: function handleBack() {
+      this.setState(function (state) {
+        return {
+          activeStep: state.activeStep - 1
+        };
+      });
+    }
+  }, {
+    key: "handleReset",
+    value: function handleReset() {
+      this.setState({
+        activeStep: 0
+      });
+    }
+  }, {
     key: "onSubmit",
     value: function onSubmit() {
       var _this2 = this;
@@ -56850,7 +58445,40 @@ function (_React$Component) {
       var _this4 = this;
 
       var classes = this.props.classes;
-      return _react.default.createElement("form", null, _react.default.createElement("div", null, _react.default.createElement(_TextField.default, {
+      var steps = getSteps();
+      var activeStep = this.state.activeStep;
+      return _react.default.createElement("div", null, _react.default.createElement("div", {
+        className: classes.root
+      }, _react.default.createElement(_Stepper.default, {
+        activeStep: activeStep,
+        orientation: "vertical"
+      }, steps.map(function (label, index) {
+        return _react.default.createElement(_Step.default, {
+          key: label
+        }, _react.default.createElement(_StepLabel.default, null, label), _react.default.createElement(_StepContent.default, null, _react.default.createElement("h3", null, getStepContent(index)), _react.default.createElement("div", {
+          className: classes.actionsContainer
+        }, _react.default.createElement("div", null, _react.default.createElement(_Button.default, {
+          disabled: activeStep === 0,
+          onClick: function onClick() {
+            return _this4.handleBack;
+          },
+          className: classes.button
+        }, "Back"), _react.default.createElement(_Button.default, {
+          variant: "contained",
+          color: "primary",
+          onClick: function onClick() {
+            return _this4.handleNext;
+          },
+          className: classes.button
+        }, activeStep === steps.length - 1 ? 'Finish' : 'Next')))));
+      })), activeStep === steps.length && _react.default.createElement(Paper, {
+        square: true,
+        elevation: 0,
+        className: classes.resetContainer
+      }, _react.default.createElement(Typography, null, "All steps completed - you're finished"), _react.default.createElement(_Button.default, {
+        onClick: this.handleReset,
+        className: classes.button
+      }, "Reset"))), _react.default.createElement("form", null, _react.default.createElement("div", null, _react.default.createElement(_TextField.default, {
         id: "outlined-select-neighborhood",
         select: true,
         label: "Neighborhood",
@@ -57033,7 +58661,7 @@ function (_React$Component) {
         }
       }, "Submit"), _react.default.createElement("h2", {
         className: "text-center"
-      }, this.state.prediction && "$".concat(this.state.prediction)));
+      }, this.state.prediction && "$".concat(this.state.prediction))));
     }
   }]);
 
@@ -57043,7 +58671,7 @@ function (_React$Component) {
 var _default = (0, _styles.withStyles)(styles)(InputForm);
 
 exports.default = _default;
-},{"react":"node_modules/react/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/TextField/index.js","@material-ui/core/MenuItem":"node_modules/@material-ui/core/MenuItem/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/styles/index.js","@material-ui/core/Button":"node_modules/@material-ui/core/Button/index.js","@material-ui/core/InputAdornment":"node_modules/@material-ui/core/InputAdornment/index.js","./neighborhoods":"src/components/form/neighborhoods.js","./room-types":"src/components/form/room-types.js","./bed-types":"src/components/form/bed-types.js","./zip-codes":"src/components/form/zip-codes.js","./property-types":"src/components/form/property-types.js","../../actions/fetch/predict":"src/actions/fetch/predict.js"}],"src/pages/input-form.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core/TextField":"node_modules/@material-ui/core/TextField/index.js","@material-ui/core/MenuItem":"node_modules/@material-ui/core/MenuItem/index.js","@material-ui/core/styles":"node_modules/@material-ui/core/styles/index.js","@material-ui/core/Button":"node_modules/@material-ui/core/Button/index.js","@material-ui/core/Stepper":"node_modules/@material-ui/core/Stepper/index.js","@material-ui/core/Step":"node_modules/@material-ui/core/Step/index.js","@material-ui/core/StepLabel":"node_modules/@material-ui/core/StepLabel/index.js","@material-ui/core/StepContent":"node_modules/@material-ui/core/StepContent/index.js","@material-ui/core/InputAdornment":"node_modules/@material-ui/core/InputAdornment/index.js","./neighborhoods":"src/components/form/neighborhoods.js","./room-types":"src/components/form/room-types.js","./bed-types":"src/components/form/bed-types.js","./zip-codes":"src/components/form/zip-codes.js","./property-types":"src/components/form/property-types.js","../../actions/fetch/predict":"src/actions/fetch/predict.js"}],"src/pages/input-form.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57091,7 +58719,7 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "container"
-      }, _react.default.createElement("h1", null, "Input Form"), _react.default.createElement(_form.default, null));
+      }, _react.default.createElement("h1", null, "Airbnb Monthly Income Prediction"), _react.default.createElement(_form.default, null));
     }
   }]);
 
@@ -57247,7 +58875,7 @@ var AppRouter = function AppRouter(props) {
     variant: "h6",
     color: "inherit",
     className: classes.grow
-  }, "AirBnb Income Prediction"), _react.default.createElement(_reactRouterDom.NavLink, {
+  }, "Airbnb Income Prediction"), _react.default.createElement(_reactRouterDom.NavLink, {
     className: classes.link,
     to: "/"
   }, _react.default.createElement(_Button.default, {
@@ -57659,7 +59287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52743" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54297" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

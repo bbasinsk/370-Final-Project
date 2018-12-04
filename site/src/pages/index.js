@@ -43,7 +43,7 @@ const AppRouter = props => {
                     <AppBar position="static">
                         <Toolbar>
                             <Typography variant="h6" color="inherit" className={classes.grow}>
-                                AirBnb Income Prediction
+                                Airbnb Income Prediction
                             </Typography>
 
                             <NavLink className={classes.link} to="/"><Button color="inherit">Home</Button></NavLink>
