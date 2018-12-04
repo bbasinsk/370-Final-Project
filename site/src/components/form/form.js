@@ -613,7 +613,6 @@ class InputForm extends React.Component {
         const { classes } = this.props;
         const steps = getSteps();
         const { activeStep } = this.state;
-        console.log(this.state.activeStep);
 
         return (
             <div>
