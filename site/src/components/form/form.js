@@ -616,7 +616,7 @@ class InputForm extends React.Component {
 
         return (
             <div>
-                <p>{this.state.formError && "There is error in the form. Please fix it and try again."}</p>
+                <p>{this.state.formError && "There is missing or bad data in the form. Please fix it and try again."}</p>
                 <div className={classes.root}>
                     <Stepper activeStep={activeStep} orientation="vertical">
                         {steps.map((label, index) => {
