@@ -633,7 +633,7 @@ class InputForm extends React.Component {
                                                     className={classes.button}
                                                 >
                                                     Back
-                                </Button>
+                                                </Button>
                                                 <Button
                                                     variant="contained"
                                                     color="primary"
