@@ -3,6 +3,7 @@ import json
 from model import get_model
 from columns import get_column_names
 import pandas as pd
+from flask_cors import CORS, cross_origin
 
 classifier = get_model()
 
@@ -11,19 +12,19 @@ classifier = get_model()
 # ===========================================================================================
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/')
 def hello_world():
     return "Hello!"
 
 
-@app.route('/predict', methods=['POST', 'OPTIONS'])
+@app.route('/predict', methods=['POST'])
 def make_prediction():
     if not request.get_json():
-        response = jsonify({'a': 'a'})
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Headers', '*')
-        return response
+        code = 400
+        msg = 'Bad request'
+        return msg, code
     
     request_data = request.get_json()
     print(request_data.get("property_type"))
@@ -74,8 +75,6 @@ def make_prediction():
     result = classifier.predict(df)
 
     response = jsonify({'prediction': result[0]})
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', '*')
     return response
 
 if __name__ == '__main__':
